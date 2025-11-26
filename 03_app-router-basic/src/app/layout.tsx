@@ -38,7 +38,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4">
             <ul className="flex gap-6 py-3 text-black">
               <li>
-                <Link href="/about">홈</Link>
+                <Link href="/">홈</Link>
               </li>
               <li>
                 <Link href="/about">소개</Link>

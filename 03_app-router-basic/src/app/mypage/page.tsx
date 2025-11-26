@@ -11,6 +11,3 @@ export default function MyPage() {
     </div>
   );
 }
-
-
-// /mappage => 마이페이지 가 보이려면 어떻게?

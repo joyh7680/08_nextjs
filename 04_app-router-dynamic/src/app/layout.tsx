@@ -3,8 +3,7 @@ import Link from "next/link";
 // import Header from "@/components/layouts/Header";
 // import Footer from "@/components/layouts/Footer";
 // import Navigator from "@/components/layouts/Navigator";
-import {Header, Navigator, Footer} from "@/components/layouts/_index"
-//@ㄱ느데 왜 index.ts를 부르는게 아니고 layout폴더에서 저걸 넣어주는거야?
+import { Header, Navigator, Footer } from "@/components/layouts"
 
 export default function RootLayout({
   children,
@@ -28,3 +27,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+//@ 왜 index.ts를 부르는게 아니고 layout폴더에서 저걸 넣어주는거야?

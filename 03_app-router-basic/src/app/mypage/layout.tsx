@@ -15,7 +15,6 @@ export default function MyPageLayout({
           <ul className="space-y-2 text-gray-800">
             {/* <li>마이페이지</li>
             <li>주문 내역</li> */}
-
             <li>
               <Link href="/mypage">마이페이지</Link>
             </li>
