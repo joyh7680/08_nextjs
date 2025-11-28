@@ -27,5 +27,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-//@ 왜 index.ts를 부르는게 아니고 layout폴더에서 저걸 넣어주는거야?
