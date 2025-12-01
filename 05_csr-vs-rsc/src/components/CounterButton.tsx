@@ -14,8 +14,7 @@ export default function CounterButton() {
   return (
     <button
       className="px-4 py-2 bg-blue-500 rounded text-white"
-      onClick={handleClick}
-    >
+      onClick={handleClick}>
       카운팅 : {count}
     </button>
   );

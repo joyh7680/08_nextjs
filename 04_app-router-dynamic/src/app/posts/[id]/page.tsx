@@ -7,8 +7,7 @@ interface PostDetailPageProps {
 
 
 //게시글 상세 화면을 보여주는 페이지 컴포넌트
-export default async function PostDetailPage({ params }: PostDetailPageProps) {
-  // props === {params : {id : 'xx'}}
+export default async function PostDetailPage({ params }: PostDetailPageProps) {// props === {params : {id : 'xx'}}
   //게시글 식별자(id세그먼트) => 데이터패칭
   //const {id} = useParams() // {id: 'xx'} => react방법
 
@@ -21,7 +20,6 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
       <h1 className="text-2xl font-bold">게시글 상세</h1>
       <p>게시글 id: {id}</p>
       <hr />
-
       {/* URL: /posts/xx/edit => 수정페이지('xx번 게시글 수정페이지") */}
       <Link href={`/posts/${id}/edit`}>수정페이지로 이동</Link>
     </div>
