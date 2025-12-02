@@ -1,4 +1,4 @@
-import { CreatePostDto, Post } from "./types";
+import { CreatePostDto, Post, UpdatePostDto } from "./types";
 
 // 백엔드 API 와의 통신 (1:1)
 
@@ -14,6 +14,7 @@ export const getPosts = async (): Promise<Post[]> => {
 
 // 상세 조회용
 export const getPostById = async (id: string): Promise<Post> => {
+  //http://localhost:4000/posts/수정할게시글의id
   const response = await fetch(`http://localhost:4000/posts/${id}`);
   if(!response.ok) throw new Error('데이터를 가져오는데 실패하였습니다.');
   const data: Post = await response.json();
@@ -27,6 +28,7 @@ export const createPost = async (post: CreatePostDto): Promise<Post> => {
     headers: {
       'Content-Type': 'application/json'
     },
+    // body: JSON.stringify(수정할데이터담겨있는 객체)
     body: JSON.stringify(post)
   });
   if(!response.ok) throw new Error('게시글 등록에 실패하였습니다.');
@@ -34,8 +36,28 @@ export const createPost = async (post: CreatePostDto): Promise<Post> => {
   return data;
 }
 
-
 // 수정용 - 방식:PUT, BODY:수정객체=>JSON문자열
+export const updatePost = async (id: string, post: UpdatePostDto): Promise<Post> => {
+
+  const response = await fetch(`http://localhost:4000/posts/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(post)
+  })
+  if(!response.ok) throw new Error('게시글 수정에 실패하였습니다.');
+  const data = await response.json();
+  return data;
+}
 
 
 // 삭제용 - 방식:DELETE
+export const deletePost = async (id: string): Promise<Post> => {
+  const response = await fetch(`http://localhost:4000/posts/${id}`, {
+    method: 'DELETE'
+  });
+  if(!response.ok) throw new Error('게시글 삭제에 실패하였습니다.');
+  const data = await response.json();
+  return data;
+}

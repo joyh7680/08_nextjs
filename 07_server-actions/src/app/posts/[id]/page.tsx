@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getPostById } from "../services";
 
 interface PostDetailPageProps {
@@ -16,6 +17,8 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
       <p>제목: {post.title}</p>
       <p>내용: {post.content}</p>
       <p>작성자: {post.author}</p>
+      <hr />
+      <Link href={`/posts/${id}/edit`}>수정페이지로 이동</Link>
     </div>
   );
 }
