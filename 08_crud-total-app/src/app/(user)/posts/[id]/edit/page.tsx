@@ -1,17 +1,21 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import PostForm from "@/features/posts/components/PostForm";
+import { getPostById } from "@/services/post.service";
 
 export default async function EditPostPage({ params }: {params: Promise<{id: string}>}) {
   const { id } = await params;
+  const post = await getPostById(id);
 
 	// 실제 데이터 페칭으로 교체될 더미 데이터
+  /*
   const mockInitialPost = {
     id: 1,
     title: "수정할 게시글 제목 예시",
     content: "기존에 작성된 게시글 내용이 여기에 들어갑니다.",
     createdAt: "2025-12-01"
   };
+  */
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-8">
@@ -25,7 +29,7 @@ export default async function EditPostPage({ params }: {params: Promise<{id: str
           </div>
         </div>
 
-        <PostForm mode="edit" initialPost={mockInitialPost} />
+        <PostForm mode="edit" initialPost={post} />
       </div>
     </div>
   );

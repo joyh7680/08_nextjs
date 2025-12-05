@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { getPosts } from "@/services/post.service";
 
-export default function PostsPage() {
+export default async function PostsPage() {
+
+  const posts = await getPosts();
 
   // 실제 데이터 페칭으로 교체될 더미 데이터
+  /*
   const mockPosts = [
     {
       id: 1,
@@ -18,6 +22,7 @@ export default function PostsPage() {
       createdAt: "2025-12-02",
     },
   ];
+  */
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6 py-8">
@@ -42,7 +47,7 @@ export default function PostsPage() {
         </div>
 
         <div className="divide-y">
-          {mockPosts.map((post) => (
+          {posts.map((post) => (
             <Link
               key={post.id}
               href={`/posts/${post.id}`}
@@ -57,7 +62,7 @@ export default function PostsPage() {
             </Link>
           ))}
 
-          {mockPosts.length === 0 && (
+          {posts.length === 0 && (
             <div className="px-6 py-10 text-center text-sm text-muted-foreground">
               아직 작성된 게시글이 없습니다.{" "}
               <Link href="/posts/new" className="text-primary underline-offset-2 hover:underline">
